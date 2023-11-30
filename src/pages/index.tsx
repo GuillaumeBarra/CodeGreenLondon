@@ -1,5 +1,5 @@
-import AleiosLink from '@/assets/AleiosLink';
-import TheodoLink from '@/assets/TheodoLink';
+import AleiosLink from '@/components/AleiosLink';
+import TheodoLink from '@/components/TheodoLink';
 import Navbar from '@/components/Navbar';
 import Head from 'next/head'
 
