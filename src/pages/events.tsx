@@ -24,7 +24,7 @@ const Events: NextPage<EventProps> = ({events}) => {
       </Head>
       <Navbar />
         <div className='flex pt-8 justify-center items-center px-8 flex-col breakpoint:w-full breakpoint:items-center'>
-          <div className='flex w-4/5 h-44 p-4 flex-col breakpoint:w-full'>
+          <div className='flex w-4/5 h-44 p-4 flex-col breakpoint:w-full breakpoint:h-28'>
             <h1>Events</h1>
           </div>
           <h3 className='flex pb-4 text-xl w-4/5 px-4 breakpoint:w-full'>Upcoming</h3>
