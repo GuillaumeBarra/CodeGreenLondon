@@ -16,7 +16,8 @@ export default function Home() {
           <div className='flex w-1/2 h-80 p-4 flex-col breakpoint:items-start breakpoint:w-full'>
             <h1 className='pb-4'>{contents.homepage.title}</h1>
             <span className='pl-1 text-lg'>{contents.homepage.description}</span>
-            <span className='py-8'>{contents.homepage.about}</span>
+            <span className='py-8'>{contents.homepage.about.paragraph1}</span>
+            <span className='pb-8'>{contents.homepage.about.paragraph2}</span>
           <div className='flex flex-row -ml-7'>
             {contents.homepage.showTheodo && <TheodoLink />}
             {contents.homepage.showAleios &&<AleiosLink />}

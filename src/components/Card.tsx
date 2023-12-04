@@ -4,7 +4,7 @@ import React from 'react';
 
 const Card = ({title, description, link, date, location}: CGLEvent) => {
   return (
-    <a className="flex flex-col justify-between w-1/4 min-h-[24rem] rounded-lg border-2 overflow-hidden m-4 p-4 breakpoint:w-full breakpoint:h-[10rem] breakpoint:min-h-0"
+    <a className="flex flex-col justify-between w-1/4 min-h-[24rem] rounded-lg shadow-2xl border-2 transition duration-200 hover:scale-105 overflow-hidden m-4 p-4 breakpoint:w-full breakpoint:h-[10rem] breakpoint:min-h-0"
     href={link}
     target="_blank">
 
@@ -12,7 +12,7 @@ const Card = ({title, description, link, date, location}: CGLEvent) => {
         <h3 className="text-xl font-bold mb-2">{title}</h3>
         <p className="breakpoint:hidden">{description}</p>
       </div>
-      <div>
+      <div className=''>
           <p>{formatDate(date)}</p>
           <p>{location}</p>
       </div>
