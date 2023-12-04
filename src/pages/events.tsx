@@ -12,10 +12,8 @@ type EventProps = {
 };
 
 const Events: NextPage<EventProps> = ({events}) => {
-  const definedEvents = events.filter(({title}) => title.trim() !== '');
-  const sortedEvents = sortEvents(definedEvents)
-  const pastEvents = getPastEvents(sortedEvents)
-  const upcomingEvents = getUpcomingEvents(sortedEvents)
+  const pastEvents = getPastEvents(events)
+  const upcomingEvents = getUpcomingEvents(events)
   return (
     <>
       <Head>
@@ -28,16 +26,16 @@ const Events: NextPage<EventProps> = ({events}) => {
             <h1>{contents.events.title}</h1>
           </div>
           <h3 className='flex pb-4 text-xl w-4/5 px-4 breakpoint:w-full'>{contents.events.upcoming}</h3>
-            {upcomingEvents.length === 0 && <span className='flex pb-4 w-4/5 px-4 breakpoint:w-full'>{contents.events.defaultUpcoming}</span>}
+            {upcomingEvents.length === 0 && <span className='flex w-4/5 px-4 breakpoint:w-full'>{contents.events.defaultUpcoming}</span>}
             {upcomingEvents.length > 0 &&
-              <div className='flex flex-wrap pb-8 w-full justify-center'>
+              <div className='flex flex-wrap pb-8 w-4/5 justify-start'>
                 {upcomingEvents.map(({ title, description, link, date, location }, index) => (
                 <Card title={title} description={description} link={link} id={index.toString()} date={date} location={location}/>
               ))}
               </div>
             }
             <h3 className='flex pb-4 pt-8 text-xl w-4/5 px-4 breakpoint:w-full'>{contents.events.past}</h3>
-            <div className='flex flex-wrap pb-8 w-full justify-center'>
+            <div className='flex flex-wrap pb-8 justify-start w-4/5'>
               {pastEvents.map(({ title, description, link, date, location }, index) => (
                 <Card title={title} description={description} link={link} id={index.toString()} date={date} location={location}/>
               ))}

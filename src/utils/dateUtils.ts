@@ -10,24 +10,34 @@ export const formatDate = (date: string) => {
     return `${day < 10 ? '0' + day : day}/${month < 10 ? '0' + month : month}/${year}`;
 }
 
+const getDefinedEvents = (events: CGLEvent[]) => {
+    return events.filter(({title}) => title.trim() !== '');
+}
+
 export const sortEvents = (events: CGLEvent[]): CGLEvent[] => {
-    const sortedEvents = events.sort((eventA,eventB) => {
+    const definedEvents = getDefinedEvents(events);
+
+    const sortedEvents = definedEvents.sort((eventA,eventB) => {
         const dateA: Date = new Date(eventA.date);
         const dateB: Date = new Date(eventB.date);
         return dateA.getTime() - dateB.getTime()
     })
 
-    return sortedEvents.reverse();
+    return sortedEvents;
 }
 
 export const getPastEvents = (events: CGLEvent[]): CGLEvent[]=> {
     const currentDate = new Date()
-    const pastEvents = events.filter(event => new Date(event.date) < currentDate)
+    const sortedEvents = sortEvents(events).reverse()
+
+    const pastEvents = sortedEvents.filter(event => new Date(event.date) < currentDate)
     return pastEvents;
 }
 
 export const getUpcomingEvents = (events: CGLEvent[]): CGLEvent[]=> {
     const currentDate = new Date()
-    const pastEvents = events.filter(event => new Date(event.date) > currentDate)
+    const sortedEvents = sortEvents(events)
+
+    const pastEvents = sortedEvents.filter(event => new Date(event.date) > currentDate)
     return pastEvents;
 }
