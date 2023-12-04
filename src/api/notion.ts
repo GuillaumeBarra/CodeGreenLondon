@@ -35,13 +35,8 @@ export const queryDatabase = async () =>
       const locationCell = row.properties.location.rich_text;
       const location = locationCell?.[0]?.plain_text ?? '';
 
-      console.log("location cell", locationCell)
-      console.log("location", location)
-
       const linkCell = row.properties.link;
       const link = linkCell?.url ?? '';
-
-      // console.log("link", linkCell, link)
 
       return { id, title, date, description, location, link };
 
