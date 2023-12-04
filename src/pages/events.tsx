@@ -2,7 +2,7 @@ import { CGLEvent, parseProperties, queryDatabase } from '@/api/notion';
 import Card from '@/components/Card';
 
 import Navbar from '@/components/Navbar';
-import { getPastEvents, getUpcomingEvents, sortEvents } from '@/utils/dateUtils';
+import { getPastEvents, getUpcomingEvents } from '@/utils/dateUtils';
 import { contents } from 'contents';
 import { NextPage } from 'next';
 import Head from 'next/head'
