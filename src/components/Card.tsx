@@ -1,20 +1,22 @@
-import { CGLEvent } from '@/api/notion';
-import { formatDate } from '@/utils/dateUtils';
 import React from 'react';
 
-const Card = ({title, description, link, date, location}: CGLEvent) => {
-  return (
-    <a className="flex flex-col justify-between w-[30%] min-h-[24rem] rounded-lg shadow-2xl border-2 transition duration-200 hover:scale-105 overflow-hidden m-4 p-4 breakpoint:w-full breakpoint:h-[10rem] breakpoint:min-h-0"
-    href={link}
-    target="_blank">
+import { CGLEvent } from '@/api/notion';
+import { formatDate } from '@/utils/dateUtils';
 
+const Card = ({ title, description, link, date, location }: CGLEvent) => {
+  return (
+    <a
+      className="m-4 flex min-h-[24rem] w-[30%] flex-col justify-between overflow-hidden rounded-lg border-2 p-4 shadow-2xl transition duration-200 hover:scale-105 breakpoint:h-[10rem] breakpoint:min-h-0 breakpoint:w-full"
+      href={link}
+      target="_blank"
+    >
       <div>
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        <h3 className="mb-2 text-xl font-bold">{title}</h3>
         <p className="breakpoint:hidden">{description}</p>
       </div>
-      <div className=''>
-          <p>{formatDate(date)}</p>
-          <p>{location}</p>
+      <div className="">
+        <p>{formatDate(date)}</p>
+        <p>{location}</p>
       </div>
     </a>
   );
