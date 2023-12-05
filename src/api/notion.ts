@@ -1,13 +1,13 @@
-import { Client } from '@notionhq/client';
-import { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
+import { Client } from "@notionhq/client";
+import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 
-const NOTION_API_KEY = process.env.NOTION_API_KEY ?? '';
+const NOTION_API_KEY = process.env.NOTION_API_KEY ?? "";
 
 export const notion = new Client({ auth: NOTION_API_KEY });
 
 export const queryDatabase = async () =>
-  notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID ?? '',
+  await notion.databases.query({
+    database_id: process.env.NOTION_DATABASE_ID ?? "",
   });
 
 export type CGLEvent = {
@@ -24,19 +24,19 @@ export const parseProperties = (database: QueryDatabaseResponse): CGLEvent[] =>
     const { id } = row;
 
     const titleCell = row.properties.title.title;
-    const title = titleCell?.[0]?.plain_text ?? '';
+    const title = titleCell?.[0]?.plain_text ?? "";
 
     const dateCell = row.properties.date;
-    const date = dateCell?.date?.start ?? '';
+    const date = dateCell?.date?.start ?? "";
 
     const descriptionCell = row.properties.description.rich_text;
-    const description = descriptionCell?.[0]?.plain_text ?? '' ?? '';
+    const description = descriptionCell?.[0]?.plain_text ?? "" ?? "";
 
     const locationCell = row.properties.location.rich_text;
-    const location = locationCell?.[0]?.plain_text ?? '';
+    const location = locationCell?.[0]?.plain_text ?? "";
 
     const linkCell = row.properties.link;
-    const link = linkCell?.url ?? '';
+    const link = linkCell?.url ?? "";
 
     return { id, title, date, description, location, link };
   });
