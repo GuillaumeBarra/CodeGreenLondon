@@ -2,12 +2,14 @@ export type Meetup = {
   homepage: {
     title: string;
     description: string;
-    about: {
-      paragraph1: string;
-      paragraph2: string;
-    };
-    showTheodo: boolean;
-    showAleios: boolean;
+    nextEvent: string;
+    isTheodoSponsor: boolean;
+    isAleiosSponsor: boolean;
+  };
+  about: {
+    title: string;
+    infoParagraph1: string;
+    infoParagraph2: string;
   };
   events: {
     title: string;
@@ -16,3 +18,18 @@ export type Meetup = {
     past: string;
   };
 };
+
+export type MeetupEvent = {
+  id: string;
+  title: string;
+  date: string;
+  description: string;
+  location: string;
+  link: string;
+};
+
+export enum meetups {
+  'codegreenlondon' = 'codegreenlondon',
+  'reactnativelondon' = 'reactnativelondon',
+  'default' = 'defaultContent',
+}
