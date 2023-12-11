@@ -1,4 +1,4 @@
-import { contents } from 'contents';
+import { contents } from 'config';
 import { NextPage } from 'next';
 import Head from 'next/head';
 
