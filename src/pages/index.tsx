@@ -1,4 +1,4 @@
-import { contents } from 'contents';
+import { contents } from 'config';
 import Head from 'next/head';
 
 import AleiosLink from '@/components/AleiosLink';
