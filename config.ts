@@ -66,8 +66,8 @@ export const emptyMeetup: Meetup = {
 };
 
 export const getSiteContent = (meetup: meetups): Meetup => {
-  if (meetup === 'codegreenlondon') return codeGreenLondon;
-  if (meetup === 'reactnativelondon') return reactNativeLondon;
+  if (meetup === meetups.CGL) return codeGreenLondon;
+  if (meetup === meetups.RNL) return reactNativeLondon;
   return emptyMeetup;
 };
 
