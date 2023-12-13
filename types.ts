@@ -8,8 +8,7 @@ export type Meetup = {
   };
   about: {
     title: string;
-    infoParagraph1: string;
-    infoParagraph2: string;
+    aboutText: string;
   };
   events: {
     title: string;
@@ -29,7 +28,7 @@ export type MeetupEvent = {
 };
 
 export enum meetups {
-  'codegreenlondon' = 'codegreenlondon',
-  'reactnativelondon' = 'reactnativelondon',
-  'default' = 'defaultContent',
+  'CGL' = 'codegreenlondon',
+  'RNL' = 'reactnativelondon',
+  'ERROR' = 'emptymeetup',
 }

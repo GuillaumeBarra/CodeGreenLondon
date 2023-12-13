@@ -18,8 +18,7 @@ export default function Home(): ReactElement {
         <div className="flex h-80 w-1/2 flex-col p-4 breakpoint:w-full breakpoint:items-start">
           <h1 className="pb-4">{contents.homepage.title}</h1>
           <span className="pl-1 text-lg">{contents.homepage.description}</span>
-          <span className="py-8">{contents.about.infoParagraph1}</span>
-          <span className="pb-8">{contents.about.infoParagraph2}</span>
+          <span className="py-8">{contents.about.aboutText}</span>
           <div className="-ml-7 flex flex-row">
             {contents.homepage.isTheodoSponsor && <TheodoLink />}
             {contents.homepage.isAleiosSponsor && <AleiosLink />}
