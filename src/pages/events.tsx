@@ -1,4 +1,4 @@
-import { contents } from 'contents';
+import { contents } from 'config';
 import { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -6,12 +6,13 @@ import { CGLEvent, parseProperties, queryDatabase } from '@/api/notion';
 import Card from '@/components/Card';
 import Navbar from '@/components/Navbar';
 import { getPastEvents, getUpcomingEvents } from '@/utils/dateUtils';
+import { ReactElement } from 'react';
 
 type EventProps = {
   events: CGLEvent[];
 };
 
-const Events: NextPage<EventProps> = ({ events }) => {
+const Events: NextPage<EventProps> = ({ events }): ReactElement => {
   const pastEvents = getPastEvents(events);
   const upcomingEvents = getUpcomingEvents(events);
   return (
